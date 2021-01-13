@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { setAlert } from './alert';
+import setAuthToken from '../utils/setAuthToken';
 
 import {
     GET_PROFILE,
@@ -9,6 +10,10 @@ import {
 // Get current user's profile
 export const getCurrentProfile = () => async dispatch => {
     try {
+        if (localStorage.token) {
+            setAuthToken(localStorage.token);
+        }
+
         const res = await axios.get('/api/profile/me');
 
         dispatch({
