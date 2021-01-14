@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { Fragment, useState, useEffect } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
@@ -40,7 +39,7 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
             youtube: loading || !profile.social.youtube ? '' : profile.social.youtube,
             instagram: loading || !profile.social.instagram ? '' : profile.social.instagram
         })
-    }, [loading])
+    }, [getCurrentProfile, loading, profile.bio, profile.company, profile.githubusername, profile.location, profile.skills, profile.social.facebook, profile.social.instagram, profile.social.linkedin, profile.social.twitter, profile.social.youtube, profile.status, profile.website])
 
     const {
         company,
