@@ -1,2 +1,1 @@
-# MERN_Project_1
-# MERN_Project_1
+Small side project utilizing React, Redux, Node (Express) and MongoDb
