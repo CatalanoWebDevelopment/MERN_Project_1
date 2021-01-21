@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+
+// Call the config function on variable
+dotenv.config();
+
 const db = process.env.MONGO_URI;
-console.log("PARKER CATALANO", db)
 
 const connectDB = async () => {
     try {
