@@ -2,11 +2,11 @@ const path = require("path");
 const webpack = require("webpack");
 
 module.exports = {
-  entry: "./client/src/index.js",
+  entry: "./client/build/index.html",
   mode: "production",
   output: {
-    filename: "main.js",
-    path: path.resolve(__dirname, "dist"),
+    filename: "index.html",
+    path: path.resolve(__dirname, 'client', 'build', 'index.html'),
   },
   node: {
     fs: "empty",
