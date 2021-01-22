@@ -3,9 +3,13 @@ const router = express.Router();
 const bycrypt = require('bcryptjs');
 const auth = require('../../middleware/auth');
 const User = require('../../models/User');
-const config = require('config');
 const jwt = require('jsonwebtoken');
 const { check, validationResult } = require('express-validator');
+
+const dotenv = require('dotenv');
+
+// Call the config function on variable
+dotenv.config();
 
 // @route   GET api/auth
 // @desc    Check if user is authenticated
@@ -59,7 +63,7 @@ async (req, res) => {
 
         jwt.sign(
             payload, 
-            config.get('jwtsecret'),
+            process.env.JWT_SECRET,
             { expiresIn: 360000 },
             (err, token) => {
                 if (err) throw err;

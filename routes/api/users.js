@@ -2,10 +2,14 @@ const express = require('express');
 const router = express.Router();
 const gravatar = require('gravatar');
 const bycrypt = require('bcryptjs');
-const config = require('config');
 const jwt = require('jsonwebtoken');
 const { check, validationResult } = require('express-validator');
 const User = require('../../models/User');
+
+const dotenv = require('dotenv');
+
+// Call the config function on variable
+dotenv.config();
 
 // @route   POST api/users
 // @desc    Register user
@@ -61,7 +65,7 @@ async (req, res) => {
 
         jwt.sign(
             payload, 
-            config.get('jwtsecret'),
+            process.env.JWT_SECRET,
             { expiresIn: 360000 },
             (err, token) => {
                 if (err) throw err;
