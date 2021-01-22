@@ -1,15 +1,10 @@
-const path = require("path");
-const Dotenv = require("dotenv-webpack");
+const path = require('path');
 
 module.exports = {
-  entry: "./client/src/index.js",
-  mode: "development",
-  output: {
-    filename: "main.js",
-    path: path.resolve(__dirname, "dist"),
-  },
-  node: {
-    fs: "empty",
-  },
-  plugins: [new Dotenv()],
+    entry: './server.js',
+    mode: 'development',
+    output: {
+        filename: 'main.js',
+        path: path.resolve(__dirname, 'client', 'public', 'index.html')
+    }
 };
